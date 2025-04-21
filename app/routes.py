@@ -11,6 +11,8 @@ def get_tasks():
 @bp.route('/tasks', methods=['POST'])
 def add_task():
     data = request.get_json()
+    if not data or 'title' not in data:
+        return jsonify({"error": "Título é obrigatório"}), 400
     task = {"id": len(tasks) + 1, "title": data["title"], "done": False}
     tasks.append(task)
     return jsonify(task), 201
