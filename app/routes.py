@@ -23,4 +23,4 @@ def mark_done(task_id):
         if task["id"] == task_id:
             task["done"] = True
             return jsonify(task)
-    return jsonify({"error": "Task not found"}), 404
+    return jsonify({"error": f"Tarefa com id {task_id} não encontrada"}), 404
