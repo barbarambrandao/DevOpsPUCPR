@@ -18,3 +18,10 @@ def create_app():
     from .routes import bp
     app.register_blueprint(bp)
     return app
+
+## Rotas disponíveis
+
+- `GET /tasks`: Lista todas as tarefas
+- `POST /tasks`: Adiciona uma nova tarefa (JSON: `{ "title": "Nome da tarefa" }`)
+- `PUT /tasks/<id>`: Marca a tarefa como feita
+
