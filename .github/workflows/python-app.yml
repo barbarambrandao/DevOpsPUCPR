@@ -28,3 +28,11 @@ jobs:
       run: |
         export PYTHONPATH=.
         pytest
+
+    - name: Enviar alerta para Discord
+      if: always()  # envia mesmo se o build falhar
+      run: |
+        curl -H "Content-Type: application/json" \
+          -X POST \
+          -d "{\"content\": \"✅ CI/CD Workflow finalizado! Status: ${{ job.status }}. Repositório: ${{ github.repository }}. Autor: ${{ github.actor }}.\"}" \
+          https://discord.com/api/webhooks/1365868409258250291/zSh4qiDiRmTKV2Ha27-i_kFCBSV5zpjUAB1rKsoe7UtYMAbE4SZoG0nMM8eksvgENptjYOUR_DISCORD_WEBHOOK_URL
