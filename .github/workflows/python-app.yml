@@ -30,7 +30,7 @@ jobs:
         pytest
 
     - name: Enviar alerta para Discord
-      if: always()  # envia mesmo se o build falhar
+      if: always()
       run: |
         curl -H "Content-Type: application/json" \
           -X POST \
